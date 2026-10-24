@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { AboutSection } from './components/AboutSection.tsx'
 import { ContactSection } from './components/ContactSection.tsx'
 import { Hero } from './components/Hero.tsx'
 import { Navbar } from './components/Navbar.tsx'
@@ -28,6 +29,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <AboutSection />
         <ProjectsSection />
         <ContactSection />
       </main>

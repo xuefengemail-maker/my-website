@@ -39,6 +39,12 @@
   --card-link: #0e7490;
   --card-link-hover: #155e75;
   --card-image-bg: #e2e8f0;
+
+  --about-photo-bg: #e2e8f0;
+  --about-photo-border: rgb(15 23 42 / 0.12);
+  --about-badge-bg: rgb(255 255 255 / 0.72);
+  --about-badge-border: rgb(14 116 144 / 0.35);
+  --about-badge-text: #0e7490;
 }
 
 .dark {
@@ -78,6 +84,12 @@
   --card-link: #67e8f9;
   --card-link-hover: #a5f3fc;
   --card-image-bg: #0f172a;
+
+  --about-photo-bg: #0f172a;
+  --about-photo-border: rgb(248 250 252 / 0.16);
+  --about-badge-bg: rgb(15 23 42 / 0.72);
+  --about-badge-border: rgb(34 211 238 / 0.45);
+  --about-badge-text: #67e8f9;
 }
 
 html {

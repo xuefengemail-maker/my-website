@@ -20,6 +20,7 @@ src/
     Navbar.tsx          固定顶部导航栏
     Hero.tsx            首屏布局、文案与 CTA
     HeroBackground.tsx  Canvas 粒子背景
+    AboutSection.tsx    关于我区域
     ThemeToggle.tsx     亮/暗主题切换按钮
     ProjectsSection.tsx 项目占位区块
     ContactSection.tsx  联系占位区块
@@ -32,6 +33,7 @@ src/
   index.css             Tailwind 入口、主题变体与颜色变量
 index.html              首屏主题启动脚本
 public/
+  about/                关于我占位肖像
   projects/             项目卡片占位截图
   og-image.png          社交分享预览图（1200x630）
   robots.txt            爬虫规则
@@ -61,6 +63,15 @@ openspec/               OpenSpec 变更与规范
 - 替换截图时，保持文件名不变，或同步修改 `screenshot` 字段。
 - 把 `href` 替换为真实的 GitHub 仓库地址。当前值是示例地址。
 - 至少保留 4 个项目。布局在 320px 为单列，768px 为两列，1280px 为四列。
+
+## 关于我区域
+
+- 数据位置：`src/content/site.ts` 中的 `siteContent.about`。
+- `paragraphs` 固定包含 3 段简介。
+- `brand` 是品牌标签文本，默认是“赋范空间”。
+- 照片放在 `public/about/profile.svg`。替换照片时保持文件名，或同步修改 `about.photo.src`。
+- 替换真实照片后，同步更新 `about.photo.alt`，保持替代文本准确。
+- 区域顺序是 Hero、关于我、项目、联系我。
 
 ## SEO 与社交分享
 

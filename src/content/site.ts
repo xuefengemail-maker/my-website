@@ -5,6 +5,16 @@ export type Project = {
   href: string
 }
 
+type AboutContent = {
+  title: string
+  paragraphs: readonly [string, string, string]
+  brand: string
+  photo: {
+    src: string
+    alt: string
+  }
+}
+
 const projects: readonly Project[] = [
   {
     name: '数据可视化仪表盘',
@@ -36,17 +46,33 @@ const projects: readonly Project[] = [
   },
 ]
 
+const about: AboutContent = {
+  title: '关于我',
+  paragraphs: [
+    '我是一名前端工程师，关注界面、交互和可维护的代码。',
+    '我喜欢把复杂问题拆成清晰的组件和流程，并用测试守住关键行为。',
+    '工作之外，我持续记录和学习，探索数据可视化与开发者工具。',
+  ],
+  brand: '赋范空间',
+  photo: {
+    src: 'about/profile.svg',
+    alt: '示例个人肖像照片',
+  },
+}
+
 export const siteContent = {
   name: '你的名字',
   role: '前端工程师',
   tagline: '用清晰的界面和可靠的代码，把想法变成产品。',
   navItems: [
     { label: '首页', href: '#hero' },
+    { label: '关于我', href: '#about' },
     { label: '项目', href: '#projects' },
     { label: '联系我', href: '#contact' },
   ],
   ctaLabel: '查看项目',
   ctaHref: '#projects',
+  about,
   projects: {
     title: '项目',
     description: '一些近期完成的作品，覆盖数据可视化、开发者工具与移动端体验。',
