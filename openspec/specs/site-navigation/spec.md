@@ -15,11 +15,11 @@
 - **THEN** 导航栏仍位于视口顶部，不随内容滚出
 
 #### Scenario: 锚点偏移
-- **WHEN** 用户跳转到 `#projects` 或 `#contact`
+- **WHEN** 用户跳转到 `#about`、`#projects` 或 `#contact`
 - **THEN** 目标 section 的标题完整可见，不被导航栏覆盖
 
 #### Scenario: 直接访问带 hash 的 URL
-- **WHEN** 访客首次打开带有 `#projects` 或 `#contact` 的 URL
+- **WHEN** 访客首次打开带有 `#about`、`#projects` 或 `#contact` 的 URL
 - **THEN** 页面渲染完成后定位到目标 section，标题完整可见，不被导航栏遮挡
 
 #### Scenario: 窄屏短视口
@@ -28,15 +28,15 @@
 
 ### Requirement: 品牌与导航链接
 
-导航栏左侧 SHALL 显示站点名字。右侧 SHALL 显示首页、项目、联系我三个原生 `<a>` 链接，目标分别为 `#hero`、`#projects`、`#contact`。每个链接的触控区域 MUST 不小于 44x44 CSS 像素。
+导航栏左侧 SHALL 显示站点名字。右侧 SHALL 显示首页、关于我、项目、联系我四个原生 `<a>` 链接，目标分别为 `#hero`、`#about`、`#projects`、`#contact`。每个链接的触控区域 MUST 不小于 44x44 CSS 像素。
 
 #### Scenario: 正常显示
 - **WHEN** 页面加载完成
-- **THEN** 导航栏左侧显示站点名字，右侧显示三个指定链接
+- **THEN** 导航栏左侧显示站点名字，右侧显示四个指定链接
 
 #### Scenario: 窄屏布局
 - **WHEN** 视口宽度为 320px
-- **THEN** 名字、三个链接和主题按钮全部可见，互不遮挡，页面不出现横向滚动
+- **THEN** 名字、四个链接和主题按钮全部可见，互不遮挡，页面不出现横向滚动
 
 #### Scenario: 键盘操作
 - **WHEN** 用户使用 Tab 键依次聚焦导航链接
