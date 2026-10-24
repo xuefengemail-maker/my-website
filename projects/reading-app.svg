@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-label="示例项目截图：移动端阅读应用">
+  <title>示例项目截图：移动端阅读应用</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#431407" />
+      <stop offset="1" stop-color="#c2410c" />
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff7ed" />
+      <stop offset="1" stop-color="#fed7aa" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)" />
+  <rect x="440" y="64" width="320" height="622" rx="42" fill="#020617" />
+  <rect x="456" y="80" width="288" height="590" rx="32" fill="url(#screen)" />
+  <rect x="540" y="96" width="120" height="10" rx="5" fill="#7c2d12" fill-opacity="0.45" />
+  <rect x="480" y="132" width="240" height="46" rx="10" fill="#c2410c" fill-opacity="0.85" />
+  <rect x="496" y="146" width="150" height="18" rx="9" fill="#fff7ed" fill-opacity="0.85" />
+  <rect x="480" y="206" width="240" height="150" rx="16" fill="#fdba74" />
+  <circle cx="520" cy="250" r="18" fill="#fff7ed" fill-opacity="0.7" />
+  <rect x="480" y="382" width="200" height="14" rx="7" fill="#7c2d12" fill-opacity="0.75" />
+  <rect x="480" y="412" width="240" height="10" rx="5" fill="#7c2d12" fill-opacity="0.35" />
+  <rect x="480" y="434" width="224" height="10" rx="5" fill="#7c2d12" fill-opacity="0.35" />
+  <rect x="480" y="456" width="236" height="10" rx="5" fill="#7c2d12" fill-opacity="0.35" />
+  <rect x="480" y="492" width="240" height="60" rx="12" fill="#ea580c" fill-opacity="0.18" />
+  <rect x="496" y="510" width="140" height="12" rx="6" fill="#9a3412" fill-opacity="0.65" />
+  <rect x="496" y="530" width="90" height="8" rx="4" fill="#9a3412" fill-opacity="0.4" />
+  <rect x="480" y="580" width="72" height="60" rx="12" fill="#c2410c" fill-opacity="0.75" />
+  <rect x="564" y="580" width="72" height="60" rx="12" fill="#c2410c" fill-opacity="0.3" />
+  <rect x="648" y="580" width="72" height="60" rx="12" fill="#c2410c" fill-opacity="0.3" />
+  <text x="104" y="660" fill="#ffedd5" fill-opacity="0.7" font-family="system-ui, sans-serif" font-size="22">示例项目 · 占位截图</text>
+</svg>

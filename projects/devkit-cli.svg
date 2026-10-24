@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-label="示例项目截图：开发者命令行工具">
+  <title>示例项目截图：开发者命令行工具</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e1b4b" />
+      <stop offset="1" stop-color="#6d28d9" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)" />
+  <rect x="96" y="80" width="1008" height="590" rx="22" fill="#020617" fill-opacity="0.82" stroke="#a78bfa" stroke-opacity="0.4" />
+  <rect x="96" y="80" width="1008" height="56" rx="22" fill="#a78bfa" fill-opacity="0.12" />
+  <circle cx="136" cy="108" r="9" fill="#f87171" />
+  <circle cx="166" cy="108" r="9" fill="#fbbf24" />
+  <circle cx="196" cy="108" r="9" fill="#34d399" />
+  <rect x="248" y="100" width="220" height="16" rx="8" fill="#a78bfa" fill-opacity="0.35" />
+  <text x="144" y="196" fill="#c4b5fd" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24">$ npx devkit new project</text>
+  <text x="144" y="248" fill="#e2e8f0" fill-opacity="0.85" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22">✔ scaffold created in 1.2s</text>
+  <text x="144" y="300" fill="#e2e8f0" fill-opacity="0.85" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22">✔ dependencies installed</text>
+  <text x="144" y="352" fill="#e2e8f0" fill-opacity="0.85" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22">✔ tests passed (32)</text>
+  <text x="144" y="424" fill="#c4b5fd" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24">$ devkit deploy --preview</text>
+  <text x="144" y="476" fill="#34d399" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22">→ preview ready: https://example.dev/preview</text>
+  <rect x="144" y="524" width="912" height="16" rx="8" fill="#a78bfa" fill-opacity="0.16" />
+  <rect x="144" y="524" width="612" height="16" rx="8" fill="#a78bfa" fill-opacity="0.6" />
+  <text x="144" y="620" fill="#e2e8f0" fill-opacity="0.65" font-family="system-ui, sans-serif" font-size="22">示例项目 · 占位截图</text>
+</svg>
