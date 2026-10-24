@@ -67,7 +67,7 @@ openspec/               OpenSpec 变更与规范
 静态 SEO 标签全部写在 `index.html`。社交爬虫不执行 JavaScript，因此不要把这些标签移到 React 组件中。
 
 - **标题与描述**：`<title>` 和 `<meta name="description">` 使用 `src/content/site.ts` 中的名字、职业和一句话介绍。修改这些文案时，同步更新 `index.html`。
-- **公开 URL**：`canonical`、`og:url`、`og:image` 和 `twitter:image` 当前使用占位地址 `https://your-username.github.io/my-website/`。发布前必须把 `your-username` 替换为真实的 GitHub 用户名。
+- **公开 URL**：`canonical`、`og:url`、`og:image` 和 `twitter:image` 当前使用占位地址 `https://xuefengemail-maker.github.io/my-website/`。发布前必须把 `xuefengemail-maker` 替换为真实的 GitHub 用户名。
 - **社交预览图**：`public/og-image.png`，尺寸 1200x630。替换图片时保持文件名和尺寸，或同步修改 `index.html` 中的图片 URL。
 - **爬虫规则**：`public/robots.txt` 允许通用爬虫和 Googlebot。页面同时包含 `<meta name="robots" content="index, follow">`。
 - **GitHub Pages 限制**：项目站点的 `robots.txt` 位于 `/my-website/robots.txt`，不是主机根目录 `username.github.io/robots.txt`。标准爬虫只读取主机根目录的 robots.txt，因此页面级 `meta robots` 才是项目站点下实际生效的索引控制。迁移到自定义域名后，同一份 `robots.txt` 会在根路径生效。
