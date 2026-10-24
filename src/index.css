@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+
+  --hero-bg-from: #f8fafc;
+  --hero-bg-via: #e0f2fe;
+  --hero-bg-to: #ecfeff;
+  --hero-scrim: rgb(248 250 252 / 0.55);
+
+  --hero-text: #0f172a;
+  --hero-text-muted: #334155;
+
+  --hero-cta-bg: #0e7490;
+  --hero-cta-bg-hover: #155e75;
+  --hero-cta-text: #ffffff;
+
+  --hero-particle: rgba(14, 116, 144, 0.45);
+
+  --hero-toggle-bg: rgb(255 255 255 / 0.72);
+  --hero-toggle-border: rgb(15 23 42 / 0.16);
+  --hero-toggle-text: #0f172a;
+
+  --hero-focus-ring: #0891b2;
+
+  --nav-bg: rgb(248 250 252 / 0.72);
+  --nav-bg-solid: #f8fafc;
+  --nav-border: rgb(15 23 42 / 0.12);
+  --nav-text: #0f172a;
+  --nav-text-hover: #0e7490;
+
+  --card-bg: rgb(255 255 255 / 0.82);
+  --card-border: rgb(15 23 42 / 0.12);
+  --card-border-hover: rgb(14 116 144 / 0.45);
+  --card-shadow: 0 1px 2px rgb(15 23 42 / 0.06);
+  --card-shadow-hover: 0 18px 40px -20px rgb(14 116 144 / 0.45);
+  --card-link: #0e7490;
+  --card-link-hover: #155e75;
+  --card-image-bg: #e2e8f0;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --hero-bg-from: #020617;
+  --hero-bg-via: #0f172a;
+  --hero-bg-to: #083344;
+  --hero-scrim: rgb(2 6 23 / 0.45);
+
+  --hero-text: #f8fafc;
+  --hero-text-muted: #cbd5e1;
+
+  --hero-cta-bg: #22d3ee;
+  --hero-cta-bg-hover: #67e8f9;
+  --hero-cta-text: #020617;
+
+  --hero-particle: rgba(34, 211, 238, 0.65);
+
+  --hero-toggle-bg: rgb(15 23 42 / 0.72);
+  --hero-toggle-border: rgb(248 250 252 / 0.2);
+  --hero-toggle-text: #f8fafc;
+
+  --hero-focus-ring: #67e8f9;
+
+  --nav-bg: rgb(2 6 23 / 0.72);
+  --nav-bg-solid: #020617;
+  --nav-border: rgb(248 250 252 / 0.16);
+  --nav-text: #f8fafc;
+  --nav-text-hover: #67e8f9;
+
+  --card-bg: rgb(15 23 42 / 0.72);
+  --card-border: rgb(248 250 252 / 0.14);
+  --card-border-hover: rgb(34 211 238 / 0.5);
+  --card-shadow: 0 1px 2px rgb(0 0 0 / 0.35);
+  --card-shadow-hover: 0 18px 40px -18px rgb(34 211 238 / 0.35);
+  --card-link: #67e8f9;
+  --card-link-hover: #a5f3fc;
+  --card-image-bg: #0f172a;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--hero-bg-from);
+  color: var(--hero-text);
+}

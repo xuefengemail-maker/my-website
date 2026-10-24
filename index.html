@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>你的名字 · 前端工程师</title>
+    <meta
+      name="description"
+      content="你的名字的个人网站。前端工程师，用清晰的界面和可靠的代码，把想法变成产品。"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://your-username.github.io/my-website/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="你的名字" />
+    <meta property="og:title" content="你的名字 · 前端工程师" />
+    <meta
+      property="og:description"
+      content="你的名字的个人网站。前端工程师，用清晰的界面和可靠的代码，把想法变成产品。"
+    />
+    <meta property="og:url" content="https://your-username.github.io/my-website/" />
+    <meta
+      property="og:image"
+      content="https://your-username.github.io/my-website/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="你的名字 · 前端工程师的网站预览图" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="你的名字 · 前端工程师" />
+    <meta
+      name="twitter:description"
+      content="你的名字的个人网站。前端工程师，用清晰的界面和可靠的代码，把想法变成产品。"
+    />
+    <meta
+      name="twitter:image"
+      content="https://your-username.github.io/my-website/og-image.png"
+    />
+    <meta name="twitter:image:alt" content="你的名字 · 前端工程师的网站预览图" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      ;(() => {
+        let theme = null
+
+        try {
+          theme = window.localStorage.getItem('theme')
+        } catch {
+          theme = null
+        }
+
+        if (theme !== 'light' && theme !== 'dark') {
+          try {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light'
+          } catch {
+            theme = 'light'
+          }
+        }
+
+        document.documentElement.classList.toggle('dark', theme === 'dark')
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
