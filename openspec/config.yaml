@@ -1,20 +1,29 @@
 schema: spec-driven
 
 context: |
-  项目：个人品牌站（Personal Website）
-  技术栈：React 19 + Vite 7 + TypeScript + Tailwind CSS v4
-  部署：GitHub Pages，base path 为 /my-website/
-  设计风格：科技感，动态粒子风，支持亮/暗切换
-  性能：首屏加载 < 2 秒，所有图片使用 lazy loading
-  产物语言：所有 OpenSpec 产物使用简体中文；代码相关术语保留英文。
+  技术栈：前端 React 19 + Vite 8；后端即将添加 FastAPI + SQLite。
+  现状：当前是纯前端品牌站，正在扩展为全栈 AI 学习平台。
+  样式：Tailwind CSS v4 + CSS 自定义属性；复用现有亮暗主题变量，使用 dark:，禁止内联 style。
+  路由：当前为单页 hash 锚点导航，无路由库；新增多页面采用 HashRouter，以兼容 GitHub Pages 静态托管。
+  部署：前端 GitHub Pages；后端独立部署，GitHub Pages 不支持 FastAPI 运行时。
+  约束：复用已有组件，不推倒重来；新增后端不得影响前端构建。
 
 rules:
-  proposal:
-    - 必须明确写出 out-of-scope（不做什么）
-    - 必须评估对现有功能的影响
   specs:
-    - 使用 Given/When/Then 格式描述交互行为
-    - 每个 spec 必须包含至少一个边界/异常场景
+    - "所有 API 行为使用 Given/When/Then 格式"
+    - "每个 spec 必须包含至少一个错误场景"
+    - "每个 requirement 的 scenario 不超过 5 个"
+    - "单个 spec 文件不超过 2000 词"
+    - "省略理由说明，除非直接影响实现"
+    - "使用 RFC 2119 关键词（SHALL/SHOULD/MAY）"
   tasks:
-    - 每个任务粒度不超过 30 分钟
-    - 按 Phase 分组，每个 Phase 结束后暂停并等待确认
+    - "单个 task 不超过 2 小时工作量"
+    - "相关 task 按 phase 分组"
+    - "每个 phase 结束后包含验证步骤"
+    - "新建服务前必须先检查是否有可复用的已有服务"
+  design:
+    - "包含组件层级图"
+    - "文档化所有 API 端点规范"
+  proposal:
+    - "必须显式列出不做的事项（out-of-scope/NOT doing 清单）"
+    - "高风险变更必须包含回滚方案"
