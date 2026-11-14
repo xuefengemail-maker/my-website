@@ -1,39 +1,24 @@
-import { useEffect } from 'react'
-import { AboutSection } from './components/AboutSection.tsx'
-import { ContactSection } from './components/ContactSection.tsx'
-import { Hero } from './components/Hero.tsx'
-import { Navbar } from './components/Navbar.tsx'
-import { ProjectsSection } from './components/ProjectsSection.tsx'
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { AuthProvider } from './auth/AuthProvider.tsx'
+import { ChatPage } from './components/chat/ChatPage.tsx'
+import { AnalyticsPage } from './components/dashboard/AnalyticsPage.tsx'
+import { GoalsPage } from './components/goals/GoalsPage.tsx'
+import { StudyPalShell } from './components/workspace/StudyPalShell.tsx'
 
 function App() {
-  useEffect(() => {
-    const hash = window.location.hash
-
-    if (hash.length <= 1) {
-      return
-    }
-
-    let id: string
-
-    try {
-      id = decodeURIComponent(hash.slice(1))
-    } catch {
-      return
-    }
-
-    document.getElementById(id)?.scrollIntoView()
-  }, [])
-
   return (
-    <>
-      <Navbar />
-      <main>
-        <Hero />
-        <AboutSection />
-        <ProjectsSection />
-        <ContactSection />
-      </main>
-    </>
+    <AuthProvider>
+      <HashRouter>
+        <Routes>
+          <Route element={<StudyPalShell />}>
+            <Route path="/" element={<AnalyticsPage />} />
+            <Route path="/chat" element={<ChatPage />} />
+            <Route path="/goals" element={<GoalsPage />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </HashRouter>
+    </AuthProvider>
   )
 }
 

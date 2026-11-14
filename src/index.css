@@ -45,6 +45,27 @@
   --about-badge-bg: rgb(255 255 255 / 0.72);
   --about-badge-border: rgb(14 116 144 / 0.35);
   --about-badge-text: #0e7490;
+
+  --dashboard-bg: #f1f5f9;
+  --dashboard-surface: #ffffff;
+  --dashboard-surface-soft: #f8fafc;
+  --dashboard-sidebar: rgb(255 255 255 / 0.86);
+  --dashboard-border: rgb(15 23 42 / 0.1);
+  --dashboard-border-strong: rgb(15 23 42 / 0.18);
+  --dashboard-text: #0f172a;
+  --dashboard-muted: #475569;
+  --dashboard-accent: #0e7490;
+  --dashboard-accent-strong: #155e75;
+  --dashboard-accent-soft: #ecfeff;
+  --dashboard-accent-contrast: #ffffff;
+  --dashboard-success: #15803d;
+  --dashboard-success-soft: #dcfce7;
+  --dashboard-track: #cbd5e1;
+  --dashboard-chart-line: #0e7490;
+  --dashboard-chart-fill: rgb(14 116 144 / 0.12);
+  --dashboard-chart-grid: rgb(15 23 42 / 0.1);
+  --dashboard-chart-point: #0e7490;
+  --dashboard-shadow: 0 16px 40px -30px rgb(15 23 42 / 0.45);
 }
 
 .dark {
@@ -90,6 +111,27 @@
   --about-badge-bg: rgb(15 23 42 / 0.72);
   --about-badge-border: rgb(34 211 238 / 0.45);
   --about-badge-text: #67e8f9;
+
+  --dashboard-bg: #020617;
+  --dashboard-surface: #0f172a;
+  --dashboard-surface-soft: #111c33;
+  --dashboard-sidebar: rgb(2 6 23 / 0.9);
+  --dashboard-border: rgb(248 250 252 / 0.12);
+  --dashboard-border-strong: rgb(248 250 252 / 0.2);
+  --dashboard-text: #f8fafc;
+  --dashboard-muted: #cbd5e1;
+  --dashboard-accent: #22d3ee;
+  --dashboard-accent-strong: #67e8f9;
+  --dashboard-accent-soft: rgb(34 211 238 / 0.14);
+  --dashboard-accent-contrast: #020617;
+  --dashboard-success: #86efac;
+  --dashboard-success-soft: rgb(34 197 94 / 0.16);
+  --dashboard-track: #1e293b;
+  --dashboard-chart-line: #22d3ee;
+  --dashboard-chart-fill: rgb(34 211 238 / 0.12);
+  --dashboard-chart-grid: rgb(248 250 252 / 0.12);
+  --dashboard-chart-point: #67e8f9;
+  --dashboard-shadow: 0 18px 50px -35px rgb(0 0 0 / 0.8);
 }
 
 html {
@@ -104,6 +146,6 @@ html {
 }
 
 body {
-  background-color: var(--hero-bg-from);
-  color: var(--hero-text);
+  background-color: var(--dashboard-bg);
+  color: var(--dashboard-text);
 }

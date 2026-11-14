@@ -1,0 +1,102 @@
+name: Backend Image
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: backend-image-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build backend image
+        run: docker build -t studypal-backend:ci backend
+
+      - name: Smoke test container
+        run: |
+          set -euo pipefail
+          data_dir="$(mktemp -d)"
+          secret="$(openssl rand -hex 32)"
+          container="studypal-backend-ci"
+
+          cleanup() {
+            docker rm -f "$container" >/dev/null 2>&1 || true
+            rm -rf "$data_dir"
+          }
+          trap cleanup EXIT
+
+          docker run -d --name "$container" -p 8001:8000 \
+            -v "$data_dir:/data" \
+            -e STUDYPAL_DATABASE_URL=sqlite:////data/studypal.db \
+            -e STUDYPAL_JWT_SECRET="$secret" \
+            -e STUDYPAL_CORS_ORIGINS=https://example.github.io \
+            -e STUDYPAL_TIMEZONE=Asia/Shanghai \
+            studypal-backend:ci
+
+          ready=0
+          for _ in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8001/health > /tmp/studypal-health.json 2>/dev/null; then
+              ready=1
+              break
+            fi
+            sleep 1
+          done
+
+          if [ "$ready" -ne 1 ]; then
+            docker logs "$container"
+            exit 1
+          fi
+
+          test "$(cat /tmp/studypal-health.json)" = '{"status":"ok","database":"ok"}'
+
+          allowed=$(curl -sS -D - -o /dev/null -X OPTIONS \
+            http://127.0.0.1:8001/api/v1/auth/login \
+            -H 'Origin: https://example.github.io' \
+            -H 'Access-Control-Request-Method: POST' | tr -d '\r')
+          echo "$allowed" | grep -qi '^access-control-allow-origin: https://example.github.io$'
+
+          blocked=$(curl -sS -D - -o /dev/null -X OPTIONS \
+            http://127.0.0.1:8001/api/v1/auth/login \
+            -H 'Origin: https://unconfigured.example' \
+            -H 'Access-Control-Request-Method: POST' | tr -d '\r')
+          if echo "$blocked" | grep -qi '^access-control-allow-origin:'; then
+            echo 'Unconfigured origin received a CORS allow header.'
+            docker logs "$container"
+            exit 1
+          fi
+
+          docker logs "$container"
+
+      - name: Verify migration failure stops container
+        run: |
+          set +e
+          output=$(docker run --rm \
+            -e STUDYPAL_DATABASE_URL=sqlite:////dev/null/studypal.db \
+            -e STUDYPAL_JWT_SECRET="$(openssl rand -hex 32)" \
+            -e STUDYPAL_CORS_ORIGINS=https://example.github.io \
+            -e STUDYPAL_TIMEZONE=Asia/Shanghai \
+            studypal-backend:ci 2>&1)
+          rc=$?
+          set -e
+
+          printf '%s\n' "$output"
+          test "$rc" -ne 0
+          if printf '%s' "$output" | grep -q 'Application startup complete'; then
+            echo 'Container started despite migration failure.'
+            exit 1
+          fi
+          if printf '%s' "$output" | grep -q 'Traceback'; then
+            echo 'Migration failure should emit a concise summary.'
+            exit 1
+          fi

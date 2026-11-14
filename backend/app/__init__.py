@@ -1,0 +1,1 @@
+"""StudyPal backend application package."""
