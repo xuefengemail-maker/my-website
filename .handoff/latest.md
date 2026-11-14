@@ -7,17 +7,17 @@
 ## 当前状态（2026-11-14）
 
 - 当前分支：`test/new-feature`；本次准备首次提交并推送。
-- 活跃 OpenSpec 变更：`openspec/changes/analytics-deploy/`，进度 35/44。
+- 活跃 OpenSpec 变更：`openspec/changes/analytics-deploy/`，进度 37/44。
 - Phase 1–6 已实现：学习记录、目标、分析、日历、成就、共享工作区、目标页、健康检查、容器入口、Pages 工作流和后端镜像 CI。
-- 本机没有 Docker/Podman；`backend-image.yml` 将在 GitHub Actions 执行镜像构建与容器冒烟，`6.1/6.7` 待首次 CI 绿灯后勾选。
+- `Backend Image` CI 已通过（run 43603145079），镜像构建、`/health`、CORS 预检和迁移失败退出均验证通过。
 - 验证通过：后端 45 个 pytest、`compileall`、`npm run lint`、`npm run build`、`openspec validate --all --strict` 6/6。
 - 已本地验证启动入口：迁移、`/health`、CORS 预检、迁移失败非零退出和错误摘要。
 
 ## 下一步
 
-1. 推送 `test/new-feature`，确认 `Backend Image` 和 `Deploy GitHub Pages` 工作流结果。
-2. CI 绿灯后勾选 `analytics-deploy` 的 `6.1/6.7`，再进入 Phase 7 集成与质量门禁。
-3. 完成 Phase 7 后执行 `openspec verify`，再走归档工作流。
+1. 进入 Phase 7 集成与质量门禁，完成完整验证和三维核对。
+2. 完成 Phase 7 后执行 `openspec verify`，再走归档工作流。
+3. `Deploy GitHub Pages` 只会在 `main` 推送或手动触发时运行；分支推送仅触发 `Backend Image`。
 
 ## 待办 / 风险
 

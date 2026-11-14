@@ -49,15 +49,15 @@
 
 ## 6. 部署与健康检查
 
-- [ ] 6.1 新增 `backend/Dockerfile` 和启动入口，先执行 `alembic upgrade head` 再启动 Uvicorn；验证镜像可构建、容器可启动且失败时退出非零。
+- [x] 6.1 新增 `backend/Dockerfile` 和启动入口，先执行 `alembic upgrade head` 再启动 Uvicorn；验证镜像可构建、容器可启动且失败时退出非零。
 - [x] 6.2 新增无需认证的 `GET /health`，检查数据库连接并返回 `{status, database}`；验证数据库正常返回 200、数据库不可用返回 503 且不泄露连接信息。
 - [x] 6.3 更新 `backend/.env.example`、根 `.env.example` 和 README，记录 `STUDYPAL_TIMEZONE`、生产数据库路径、CORS、前端 API 地址和单实例持久卷要求；验证文档命令可照抄执行且无真实密钥。
 - [x] 6.4 新增 GitHub Actions Pages 工作流，执行 `npm ci`、`npm run lint`、`npm run build` 并发布 `dist/`；缺少 `VITE_STUDYPAL_API_BASE_URL` 时在发布前失败。
 - [x] 6.5 配置并验证生产 CORS：只允许 `STUDYPAL_CORS_ORIGINS` 中的来源，GitHub Pages 来源可加入，未配置来源的预检不返回放行头。
 - [x] 6.6 记录 SQLite 备份、迁移失败停止发布、镜像回滚和 `alembic downgrade 20261114_0002` 步骤；验证回滚后 `users`、`user_profiles`、`refresh_tokens` 和聊天数据仍可读取。
-- [ ] 6.7 运行 Phase 验证：`docker build`、`npm run build`、健康检查冒烟、CORS 冒烟和 OpenSpec validate。
+- [x] 6.7 运行 Phase 验证：`docker build`、`npm run build`、健康检查冒烟、CORS 冒烟和 OpenSpec validate。
 
-> 环境限制：本机没有 Docker/Podman；已新增 `.github/workflows/backend-image.yml` 在 GitHub Actions 执行镜像构建和容器冒烟。6.1/6.7 待首次 CI 绿灯后勾选；依赖冻结安装、启动入口、迁移失败退出、健康检查和 CORS 已用本地进程验证。
+> 验证记录：GitHub Actions `Backend Image` run 43603145079 通过，覆盖镜像构建、`/health`、CORS 预检和迁移失败退出；本地同时验证了启动入口和冻结依赖安装。
 
 ## 7. 集成与质量门禁
 
